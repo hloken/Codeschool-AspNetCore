@@ -5,6 +5,7 @@ namespace CharacterSheetApp.Models
 	public class Character
 	{
 		public string Name { get; set; }
+        public bool IsActive { get; set; }
 
 		public static void Create(string characterName)
 		{
