@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CharacterSheetApp.Controllers
 {
+    //[Route("[controller]/[action]")]
     public class CharacterController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -14,6 +15,26 @@ namespace CharacterSheetApp.Controllers
             _context = context;
         }
 
+        //public IActionResult Index()
+        //{
+        //    return View(Character.GetAll());
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Create(string characterName)
+        //{
+        //    Character.Create(characterName);
+
+        //    return RedirectToAction("Index");
+        //}
+
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
+        [HttpPost]
         public IActionResult Create(Character character)
         {
             _context.Characters.Add(character);
@@ -28,18 +49,21 @@ namespace CharacterSheetApp.Controllers
             return View(model);
         }
 
+        //[HttpGet("active")]
         public IActionResult GetActive()
         {
             var model = _context.Characters.Where(e => e.IsActive).ToList();
             return View(model);
         }
 
+        [HttpGet("{name}")]
         public IActionResult Details(string name)
         {
             var model = _context.Characters.FirstOrDefault(e => e.Name == name);
             return View(model);
         }
 
+        [HttpPut]
         public IActionResult Update(Character character)
         {
             _context.Entry(character).State = EntityState.Modified;
@@ -47,6 +71,7 @@ namespace CharacterSheetApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpDelete("{name}")]
         public IActionResult Delete(string name)
         {
             var original = _context.Characters.FirstOrDefault(e => e.Name == name);

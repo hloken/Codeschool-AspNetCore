@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +27,9 @@ namespace CharacterSheetApp
         {
             // Add framework services.
             services.AddEntityFramework()
-                .AddDbContext<Models.ApplicationDbContext>();
+                .AddDbContext<Models.ApplicationDbContext>( options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc();
         }
 
@@ -52,7 +55,7 @@ namespace CharacterSheetApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Character}/{action=Index}/{id?}");
             });
         }
     }

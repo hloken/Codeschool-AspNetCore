@@ -4,6 +4,15 @@ namespace CharacterSheetApp.Models
 {
 	public class ApplicationDbContext : DbContext
 	{
-		public DbSet<Character> Characters { get; set; }
+	    public ApplicationDbContext(DbContextOptions options) : base(options)
+	    {
+	    }
+
+	    public DbSet<Character> Characters { get; set; }
+
+	    protected override void OnModelCreating(ModelBuilder modelBuilder)
+	    {
+	        modelBuilder.Entity<Character>().ToTable("Character");
+	    }
 	}
 }
