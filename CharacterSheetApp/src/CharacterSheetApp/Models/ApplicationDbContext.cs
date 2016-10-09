@@ -9,10 +9,13 @@ namespace CharacterSheetApp.Models
 	    }
 
 	    public DbSet<Character> Characters { get; set; }
+        public DbSet<Quest> Quests { get; set; }
+       
 
-	    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 	    {
 	        modelBuilder.Entity<Character>().ToTable("Character");
+	        modelBuilder.Entity<Quest>().ToTable("Quest");
 	    }
 	}
 }
