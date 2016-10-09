@@ -34,8 +34,7 @@ namespace CharacterSheetApp.Controllers
 
         public IActionResult Index()
         {
-            //Set Title Here
-
+            ViewData["Title"] = "Quests";
             var model = _context.Quests.ToList();
             return View(model);
         }
