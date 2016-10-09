@@ -1,0 +1,19 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model CharacterSheetApp.Models.Character
+<h2>Details</h2>
+<hr/>
+<div class="form-horizontal">
+    <h4>Character</h4>
+    <hr/>
+    <div class="row">
+        @Html.LabelFor(m => m.Name)
+        @Html.DisplayFor(m => m.Name)
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.IsActive)
+        @Html.DisplayFor(m => m.IsActive)
+    </div>
+    @*<div class="row">
+        <input type="button" value="Return to character list" asp-controller="Character" asp-action="Index"/>
+    </div>*@
+</div>

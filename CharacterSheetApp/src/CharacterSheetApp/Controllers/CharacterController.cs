@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CharacterSheetApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -45,15 +46,16 @@ namespace CharacterSheetApp.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Title"] = "Characters";
             var model = _context.Characters.ToList();
             return View(model);
         }
 
         //[HttpGet("active")]
-        public IActionResult GetActive()
+        public List<Character> GetActive()
         {
             var model = _context.Characters.Where(e => e.IsActive).ToList();
-            return View(model);
+            return model;
         }
 
         [HttpGet("{name}")]

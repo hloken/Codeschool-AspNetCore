@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <title>@ViewData["Title"] - by Loreal</title>
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    @RenderSection("header", required:false)
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2016 - Weyland Yutani Corp.</p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
+

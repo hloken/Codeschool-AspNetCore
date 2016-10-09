@@ -1,5 +1,8 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model List<CharacterSheetApp.Models.Character>
+@section header{
+    <meta name="description" content="Lists all characters in CharacterApp"/>
+}
 <h2>Character</h2>
 <a asp-action="Create" asp-controller="Character">
 	<div>
