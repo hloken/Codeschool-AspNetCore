@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFD539DA-F4E6-42EE-9C43-729BE76B6DC6}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CharacterSheetApp", "src\CharacterSheetApp\CharacterSheetApp.xproj", "{68C5730F-B985-4458-8EF4-E6C07B637D33}"
