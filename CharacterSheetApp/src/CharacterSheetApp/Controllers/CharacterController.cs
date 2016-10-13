@@ -58,7 +58,7 @@ namespace CharacterSheetApp.Controllers
             return model;
         }
 
-        [HttpGet("{name}")]
+        //[HttpGet("{name}")]
         public IActionResult Details(string name)
         {
             var model = _context.Characters.FirstOrDefault(e => e.Name == name);

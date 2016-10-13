@@ -44,16 +44,16 @@ namespace CharacterSheetApp.Models
 
         //public List<Equipment> Equipment { get; set; } = new List<Equipment>();
 
-  //      public static void Create(string characterName)
-		//{
-		//	var character = new Character {Name = characterName};
+        public static void Create(string characterName)
+        {
+            var character = new Character { Name = characterName };
 
-		//	GlobalVariables.Characters.Add(character);
-		//}
+            GlobalVariables.Characters.Add(character);
+        }
 
-		//public static List<Character> GetAll()
-		//{
-		//	return GlobalVariables.Characters;
-		//}
-	}
+        public static List<Character> GetAll()
+        {
+            return GlobalVariables.Characters;
+        }
+    }
 }

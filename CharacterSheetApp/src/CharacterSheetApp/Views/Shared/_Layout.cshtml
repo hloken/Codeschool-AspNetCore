@@ -7,7 +7,7 @@
     <title>@ViewData["Title"] - ForgingAhead</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @RenderSection("header", required: false)
 </head>
 <body>
@@ -19,8 +19,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 @*<a asp-controller="Home" asp-action="Index" class="navbar-brand">
-                    <img src="~/images/forging-ahead-title-small.png" alt="Course Logo" height="25">
-                </a>*@
+                        <img src="~/images/forging-ahead-title-small.png" alt="Course Logo" height="25">
+                    </a>*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -33,7 +33,9 @@
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <div class="row">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; 2016 - Weyland Yutani Corp.</p>
