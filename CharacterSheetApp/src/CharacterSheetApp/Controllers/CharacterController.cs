@@ -16,20 +16,6 @@ namespace CharacterSheetApp.Controllers
             _context = context;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View(Character.GetAll());
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Create(string characterName)
-        //{
-        //    Character.Create(characterName);
-
-        //    return RedirectToAction("Index");
-        //}
-
         public IActionResult Create()
         {
             return View("Create");
@@ -42,6 +28,14 @@ namespace CharacterSheetApp.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(string name)
+        {
+            ViewData["Title"] = "Edit " + name;
+
+            var model = _context.Characters.FirstOrDefault(e => e.Name == name);
+            return View(model);
         }
 
         public IActionResult Index()
@@ -65,7 +59,7 @@ namespace CharacterSheetApp.Controllers
             return View(model);
         }
 
-        [HttpPut]
+        [HttpPost]
         public IActionResult Update(Character character)
         {
             _context.Entry(character).State = EntityState.Modified;

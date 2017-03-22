@@ -4,12 +4,6 @@
     <meta name="description" content="Lists all characters in CharacterApp"/>
 }
 <h2>Character</h2>
-<a asp-action="Create" asp-controller="Character">
-	<div>
-		<input name="characterName" />
-		<input type="submit" value="Add Character" />
-	</div>
-</a>
 <div>
     <ul>
         @foreach (var item in Model)
@@ -20,4 +14,7 @@
                 </a>
             </li>}
     </ul>
+    <div class="row">
+        <input asp-action="Create" asp-controller="Character" type="button" value="Add Character" />
+    </div>
 </div>

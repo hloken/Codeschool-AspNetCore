@@ -1,5 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model CharacterSheetApp.Models.Character
+﻿@model CharacterSheetApp.Models.Character
 @Html.Partial("_CharacterSheet", Model)
 <div style="clear: both;">
 </div>
@@ -16,4 +15,5 @@
         @Html.LabelFor(m => m.IsActive)
         @Html.DisplayFor(m => m.IsActive)
     </div>
+    <input asp-controller="Character" asp-action="Edit" type="button" asp-route-name="@Model.Name" value="Edit"/>
 </div>
