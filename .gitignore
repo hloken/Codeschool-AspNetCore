@@ -234,3 +234,4 @@ _Pvt_Extensions
 .fake/
 
 CharacterSheetApp/src/CharacterSheetApp/wwwroot/lib/**
+CharacterSheetApp/CharacterSheetApp/wwwroot/lib/**
