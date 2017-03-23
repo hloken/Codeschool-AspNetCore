@@ -15,5 +15,5 @@
         @Html.LabelFor(m => m.IsActive)
         @Html.DisplayFor(m => m.IsActive)
     </div>    
-    <input asp-controller="Character" asp-action="Edit" type="button" asp-route-name="@Model.Name" value="Edit"/>
+    <a class="btn btn-default" asp-controller="Character" asp-action="Edit" asp-route-name="@Model.Name">Edit</a>
 </div>

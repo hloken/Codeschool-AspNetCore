@@ -1,5 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<CharacterSheetApp.Models.Character>
+﻿@model List<CharacterSheetApp.Models.Character>
 @section header{
     <meta name="description" content="Lists all characters in CharacterApp"/>
 }
@@ -15,6 +14,6 @@
             </li>}
     </ul>
     <div class="row">
-        <a asp-action="Create" asp-controller="Character">Add Character</a>        
+        <a class="btn btn-default" asp-action="Create" asp-controller="Character">Add Character</a>        
     </div>
 </div>
