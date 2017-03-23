@@ -22,21 +22,21 @@ namespace CharacterSheetApp.Models
         }
 
         [Required]
-        [Range(1, 18, ErrorMessage = "Your base strength must be between 1 and 18.")]
+        [Range(1, 20, ErrorMessage = "Your base strength must be between 1 and 18.")]
         public int Strength
         {
             get; set;
         }
 
         [Required(ErrorMessage = "The Dexterity field is required.")]
-        [Range(1, 18, ErrorMessage = "Your base dexterity must be between 1 and 18.")]
+        [Range(1, 20, ErrorMessage = "Your base dexterity must be between 1 and 18.")]
         public int Dexterity
         {
             get; set;
         }
 
         [Required]
-        [Range(1, 18, ErrorMessage = "Your base intelligence must be between 1 and 18.")]
+        [Range(1, 20, ErrorMessage = "Your base intelligence must be between 1 and 18.")]
         public int Intelligence
         {
             get; set;
