@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CharacterSheetApp.Controllers
 {
-    //[Route("[controller]/[action]")]
     public class CharacterController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,9 +15,43 @@ namespace CharacterSheetApp.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View("Create");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(string name)
+        {
+            ViewData["Title"] = "Edit " + name;
+
+            var model = _context.Characters.FirstOrDefault(e => e.Name == name);
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            ViewData["Title"] = "Characters";
+            var model = _context.Characters.ToList();
+            return View(model);
+        }
+
+        [HttpGet]
+        public List<Character> GetActive()
+        {
+            var model = _context.Characters.Where(e => e.IsActive).ToList();
+            return model;
+        }
+
+        [HttpGet("Character/{name}/Details")]
+        public IActionResult Details(string name)
+        {
+            ViewData["Title"] = name;
+
+            var model = _context.Characters.FirstOrDefault(e => e.Name == name);
+            return View(model);
         }
 
         [HttpPost]
@@ -30,35 +63,6 @@ namespace CharacterSheetApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(string name)
-        {
-            ViewData["Title"] = "Edit " + name;
-
-            var model = _context.Characters.FirstOrDefault(e => e.Name == name);
-            return View(model);
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["Title"] = "Characters";
-            var model = _context.Characters.ToList();
-            return View(model);
-        }
-
-        //[HttpGet("active")]
-        public List<Character> GetActive()
-        {
-            var model = _context.Characters.Where(e => e.IsActive).ToList();
-            return model;
-        }
-
-        //[HttpGet("{name}")]
-        public IActionResult Details(string name)
-        {
-            var model = _context.Characters.FirstOrDefault(e => e.Name == name);
-            return View(model);
-        }
-
         [HttpPost]
         public IActionResult Update(Character character)
         {
@@ -67,7 +71,7 @@ namespace CharacterSheetApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpDelete("{name}")]
+        [HttpPost("Character/{name}/Delete")]
         public IActionResult Delete(string name)
         {
             var original = _context.Characters.FirstOrDefault(e => e.Name == name);
